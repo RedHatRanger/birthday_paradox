@@ -9,11 +9,10 @@ def has_duplicate_birthdays(num_people, trials=10000):
     for _ in range(trials):
         birthdays = [random.randint(1, 365) for _ in range(num_people)]
         if len(set(birthdays)) < len(birthdays):
-            # If there's a duplicate, increment
             count_duplicates += 1
     return count_duplicates / trials
 
-# Test for group sizes from, say, 5 to 50
-for group_size in range(5, 51, 5):
+# Test group sizes from 1 to 75
+for group_size in range(1, 76):
     probability = has_duplicate_birthdays(group_size)
-    print(f"For {group_size} people, probability of a shared birthday ~ {probability:.2f}")
+    print(f"For {group_size} people, probability of a shared birthday: {probability * 100:.2f}%")
